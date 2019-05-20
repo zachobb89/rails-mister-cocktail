@@ -11,3 +11,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.container h2 {
+  text-align: center;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.form {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

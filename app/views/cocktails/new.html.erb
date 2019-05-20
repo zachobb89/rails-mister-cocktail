@@ -1,4 +1,15 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, class: "btn btn-warning" %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/605408/pexels-photo-605408.jpeg?cs=srgb&dl=alcoholic-beverages-bar-beverage-605408.jpg&fm=jpg);">
+  <div class="container">
+    <h1>Name<strong> your</strong> cocktail</h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="form">
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name, label: 'Your cocktail name:', :required => false %>
+    <%= f.button :submit, class: "btn btn-warning" %>
+  <% end %>
+  </div>
+</div>

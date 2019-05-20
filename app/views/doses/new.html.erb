@@ -1,7 +1,12 @@
+<div class="banner show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1472245088132-ccd50746725c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80);">
+<div class="container">
 <h1>Add dose for: <%= @cocktail.name %></h1>
-
+<div class="form-section">
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
+  <%= f.input :description, label: 'Dosage:', :required => false%>
+  <%= f.association :ingredient, label: 'Ingredient:', :required => false %>
   <%= f.button :submit, class: "btn btn-warning" %>
 <% end %>
+</div>
+</div>
+</div>

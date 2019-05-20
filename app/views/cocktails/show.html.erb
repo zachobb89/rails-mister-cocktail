@@ -1,7 +1,14 @@
-<%= @cocktail.name %>
-<% @doses.each do |d| %>
-  <p><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Delete", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
-<% end %>
-
-<%= link_to "Home", root_path %> | <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail) %>
+<div class="banner show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/605408/pexels-photo-605408.jpeg?cs=srgb&dl=alcoholic-beverages-bar-beverage-605408.jpg&fm=jpg);">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <br>
+      <% @doses.each do |d| %>
+        <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
+      <% end %>
+        <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+        <br>
+        <br>
+        <%= link_to "Home", root_path, class: "btn btn-warning" %>
+  </div>
+</div>
 
