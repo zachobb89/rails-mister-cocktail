@@ -1,8 +1,10 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  // height: 100vh;
+  padding: 150px 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .banner h1 {
@@ -24,3 +26,5 @@
 .show-banner {
   height: calc(100vh - 70px);
 }
+
+
