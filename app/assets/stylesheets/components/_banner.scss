@@ -23,7 +23,9 @@
 }
 
 .show-banner {
-  height: calc(100vh - 70px);
+  height: calc(80vh);
+  display: flex;
+  padding-top: 40px;
 }
 
 

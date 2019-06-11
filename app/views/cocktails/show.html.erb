@@ -6,9 +6,6 @@
         <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
       <% end %>
         <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-        <br>
-        <br>
-        <%= link_to "Home", root_path, class: "btn btn-warning" %>
   </div>
 </div>
 
