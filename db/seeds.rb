@@ -8,4 +8,6 @@ result = JSON.parse(open(url).read)
 
 result['drinks'].each do |ingredient|
   Ingredient.create(name: ingredient['strIngredient1'])
+
+
 end

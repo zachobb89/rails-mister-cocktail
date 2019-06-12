@@ -1,12 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80);">
     <h1>Make <strong>A</strong> Cocktail</h1>
     <p>It's always happy hour.</p>
+    <% if !current_user %>
+      <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary"%>
+    <% end %>
 </div>
 
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-    <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-primary"%>
-   </div>
+  <% if current_user %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-primary"%>
+    </div>
+  <% end %>
 
   <% @cocktails.each do |c| %>
     <%= link_to cocktail_path(c) do %>
