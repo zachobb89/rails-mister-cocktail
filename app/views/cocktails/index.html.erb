@@ -3,6 +3,8 @@
     <p>It's always happy hour.</p>
     <% if !current_user %>
       <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary"%>
+    <% else %>
+      <p>Welcome <%= current_user.first_name %></p>
     <% end %>
 </div>
 

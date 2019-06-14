@@ -5,9 +5,10 @@
       <% @doses.each do |d| %>
         <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
       <% end %>
-        <% if @cocktail.user_id == current_user.id %>
+        <% if current_user && @cocktail.user_id == current_user.id %>
           <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
           <%= link_to "Delete Cocktail", cocktail_path(@cocktail[:id]), method: :delete, data: { confirm: "Delete... are you sure?" }, class: "btn btn-danger" %>
+          <% else %>
         <% end %>
   </div>
 </div>
