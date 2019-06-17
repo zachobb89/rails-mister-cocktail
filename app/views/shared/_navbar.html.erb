@@ -1,17 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container nav-con" style="display: flex; justify-content: center;">
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Menu
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Home", root_path %>
+  <div class="container nav-con" style="display: flex;">
+    <!-- <div class="dropdown"> -->
+      <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+        <!-- Menu -->
+      <!-- </button> -->
+      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+        <%= link_to "Home", root_path, class: "btn btn-primary" %>
         <% if current_user %>
-          <%= link_to "Log-out", destroy_user_session_path, method: :delete %>
+          <%= link_to "My profile", user_path(current_user), class: "btn btn-primary" %>
+          <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
         <% else %>
-          <%= link_to "Log-in", new_user_session_path %>
+          <%= link_to "Log-in", new_user_session_path, class: "btn btn-primary" %>
         <% end %>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>

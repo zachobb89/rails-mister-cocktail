@@ -1,5 +1,38 @@
-<%= @user.email %>
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= cl_image_tag @user.photo %>
+
+
+  <div class="index-cards" id="person-cards">
+    <div class="user-card">
+            <div class="left-card">
+              <img class="card-pic" style="background-image: url(<%= @user.photo %>);" alt="">
+            </div>
+            <div class="right-card">
+              <%= @user.first_name %> <%= @user.last_name %>
+              <hr>
+              <%= @user.username %>
+            </div>
+
+        <div class="card-email">
+          <%= link_to @user.email %>
+        </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="cards">
+    <% if current_user %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+        <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-primary"%>
+      </div>
+    <% end %>
+
+    <% @cocktails.each do |c| %>
+      <%= link_to cocktail_path(c) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= c.photo %> )">
+          <%= c.name %>
+        </div>
+      <% end %>
+    <% end %>
+    <br>
+  </div>
+
 

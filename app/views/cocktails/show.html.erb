@@ -1,7 +1,9 @@
 <div class="banner show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.photo %>);">
   <div class="container">
     <h1><%= @cocktail.name %></h1>
+    <h3><%= @cocktail.description %></h3>
     <br>
+      <h4>Ingredients</h4>
       <% @doses.each do |d| %>
         <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
       <% end %>

@@ -1,0 +1,46 @@
+.show-cont {
+  display: flex;
+}
+
+
+
+.index-cards {
+  width: 250px;
+}
+
+.user-card {
+  background: white;
+  text-align: center;
+}
+
+.card-pic {
+  height: 200px;
+  width: 250px;
+  margin-bottom: 15px;
+  border: none;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.card-email {
+  background-color: purple;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-size: 1px;
+  margin-top: 15px;
+  border-bottom: 2px solid rgba(27, 170, 111, .2);
+  &:hover {
+    border-bottom: 2px solid white;
+    cursor: pointer;
+  }
+}
+
+#person-cards a {
+  color: white;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
