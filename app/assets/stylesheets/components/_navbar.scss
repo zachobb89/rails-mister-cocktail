@@ -10,3 +10,11 @@
 } img {
   width: 40px;
 }
+
+i {
+  opacity: 0.85;
+  color: #e94443;
+  &:hover {
+    opacity: 1;
+  }
+}

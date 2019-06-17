@@ -3,7 +3,9 @@
     <h1><%= @cocktail.name %></h1>
     <h3><%= @cocktail.description %></h3>
     <br>
-      <h4>Ingredients</h4>
+      <% if @doses.count > 0 %>
+        <h4>Ingredients</h4>
+      <% end %>
       <% @doses.each do |d| %>
         <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
       <% end %>

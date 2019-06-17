@@ -1,0 +1,19 @@
+.btn-green {
+  background-color: #e94443;
+  opacity: 0.85;
+  color: white;
+  &:hover {
+    opacity: 1;
+    color: white;
+  }
+}
+
+.btn-blue {
+  background-color: #03A0D6;
+  opacity: 0.85;
+  color: white;
+  &:hover {
+    opacity: 1;
+    color: white;
+  }
+}

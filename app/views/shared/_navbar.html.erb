@@ -5,12 +5,16 @@
         <!-- Menu -->
       <!-- </button> -->
       <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-        <%= link_to "Home", root_path, class: "btn btn-primary" %>
+        <%= link_to root_path do %>
+          <i class="fas fa-cocktail" style="font-size: 38px"></i>
+          <%#ß= image_tag(("logo-emerald-lrg-bright.png"), class: "emerald-logo") %>
+        <% end %>
+        <%#= link_to "Home", root_path, class: "btn btn-primary" %>
         <% if current_user %>
-          <%= link_to "My profile", user_path(current_user), class: "btn btn-primary" %>
-          <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <%= link_to "My profile", user_path(current_user), class: "btn btn-green" %>
+          <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "btn btn-green" %>
         <% else %>
-          <%= link_to "Log-in", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "Log-in", new_user_session_path, class: "btn btn-green" %>
         <% end %>
       <!-- </div> -->
     </div>
