@@ -1,8 +1,6 @@
-.show-cont {
+ .show-cont {
   display: flex;
 }
-
-
 
 .index-cards {
   width: 250px;
@@ -24,14 +22,14 @@
 }
 
 .card-email {
-  background-color: purple;
+  background-color: #03A0D6;
   padding-top: 15px;
   padding-bottom: 15px;
   text-size: 1px;
   margin-top: 15px;
   border-bottom: 2px solid rgba(27, 170, 111, .2);
   &:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #e94443;
     cursor: pointer;
   }
 }
@@ -43,4 +41,38 @@
   }
 }
 
+.show-split {
+  display: flex;
+  justify-content: space-between;
+}
 
+.show-split h1 {
+  color: white;
+}
+
+.show-banner {
+  position: relative;
+}
+
+
+.delete-show {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+ a {
+  &:hover {
+    text-decoration: none;
+  }
+ }
+
+ .add-show {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+ a {
+  &:hover {
+    text-decoration: none;
+  }
+ }

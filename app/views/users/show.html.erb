@@ -19,6 +19,9 @@
   <br>
 
   <h3>Your latest creations!</h3>
+  <% if @cocktails.count < 1 %>
+  <p>You have no cocktails</p>
+  <% end %>
   <div class="cards">
 
     <% @cocktails.each do |c| %>
@@ -31,7 +34,7 @@
 
     <% if current_user %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-primary"%>
+        <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-blue"%>
       </div>
     <% end %>
     <br>

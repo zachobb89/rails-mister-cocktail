@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   root to: "cocktails#index"
+
+  get "favorites_controller/:cocktail_id" => "favorites#create", :as => :favorite
 end

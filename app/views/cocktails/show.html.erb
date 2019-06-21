@@ -1,19 +1,30 @@
 <div class="banner show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.photo %>);">
-  <div class="container">
-    <h1><%= @cocktail.name %></h1>
-    <h3><%= @cocktail.description %></h3>
-    <br>
+  <div class="container show-split">
+    <div>
+      <h1><%= @cocktail.name %></h1>
+      <p><%= @cocktail.description %></p>
+    </div>
+    <div>
       <% if @doses.count > 0 %>
-        <h4>Ingredients</h4>
+        <h1>Ingredients</h1>
       <% end %>
       <% @doses.each do |d| %>
-        <p class="ing-text"><%= d.ingredient.name %> - <%= d.description %> | <%= link_to "Remove", dose_path(d), method: :delete, data: { confirm: "Sure?" } %></p>
+        <p class="ing-text"><%= d.ingredient.name %> - <%= d.description + "  "  %> <% if current_user && @cocktail.user_id == current_user.id  %>
+          <%= link_to dose_path(d), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        <% end %>
       <% end %>
+      <br>
+      <br>
         <% if current_user && @cocktail.user_id == current_user.id %>
-          <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-          <%= link_to "Delete Cocktail", cocktail_path(@cocktail[:id]), method: :delete, data: { confirm: "Delete... are you sure?" }, class: "btn btn-danger" %>
+          <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-blue add-show" %>
+          <br>
+          <br>
+          <%= link_to "Delete Cocktail", cocktail_path(@cocktail[:id]), method: :delete, data: { confirm: "Delete... are you sure?" }, class: "btn btn-green delete-show" %>
           <% else %>
         <% end %>
+      </div>
   </div>
 </div>
 
