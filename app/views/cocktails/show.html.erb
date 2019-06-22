@@ -6,10 +6,10 @@
     </div>
     <div>
       <% if @doses.count > 0 %>
-        <h1>Ingredients</h1>
+        <h1 id="ingr">Ingredients</h1>
       <% end %>
       <% @doses.each do |d| %>
-        <p class="ing-text"><%= d.ingredient.name %> - <%= d.description + "  "  %> <% if current_user && @cocktail.user_id == current_user.id  %>
+        <p class="ing-text" id="name"><%= d.ingredient.name %> - <%= d.description + "  "  %> <% if current_user && @cocktail.user_id == current_user.id  %>
           <%= link_to dose_path(d), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fas fa-minus-circle"></i>
           <% end %>
@@ -27,4 +27,5 @@
       </div>
   </div>
 </div>
+
 
