@@ -37,7 +37,27 @@
         <%= link_to "New Cocktail +", new_cocktail_path, class: "btn btn-blue"%>
       </div>
     <% end %>
-    <br>
   </div>
 
+  <h3>Your favourite cocktails!</h3>
+  <div class="cards">
+    <% current_user.favorites.each do |favourite| %>
+    <%= link_to cocktail_path(favourite.cocktail_id) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= favourite.cocktail.photo %> )">
+          <%= favourite.cocktail.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
+<script>
+  let email = document.querySelector('.card-email')
+
+  email.addEventListener('click', (event) => {
+    if (event.currentTarget.classList.contains('e-click')) {
+      event.currentTarget.classList.remove('e-click');
+    } else {
+      event.currentTarget.classList.add('e-click');
+      }
+  });
+</script>

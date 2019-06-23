@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # resources :ingredients
   resources :users, only: [:show]
 
+  resources :favorites, only: [:index, :new, :create, :destroy]
+
   root to: "cocktails#index"
 
-  get "favorites_controller/:cocktail_id" => "favorites#create", :as => :favorite
+  # get "favorites_controller/:cocktail_id" => "favorites#create", :as => :favorite
 end
