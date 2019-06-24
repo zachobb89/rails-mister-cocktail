@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="form">
+  <%= simple_form_for([@cocktail, @review]) do |f| %>
+    <%= f.input :stars, label: 'number of stars', required: false %>
+    <%= f.input :description, label: 'Enter a review', required: false %>
+    <%#= f.input :user_id, as: :hidden %>
+    <%#= f.hidden_field :user_id, :value => current_user.id %>
+    <%#= f.input :cocktail_id, value: params[:cocktail_id], as: :hidden %>
+    <%= f.hidden_field :cocktail_id, :value => @cocktail.id %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>

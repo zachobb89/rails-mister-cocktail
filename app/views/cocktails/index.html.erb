@@ -19,11 +19,6 @@
     <%= link_to cocktail_path(c.id) do %>
       <div class="card-category card1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= c.photo %> )">
         <%= c.name %>
-        <% if current_user %>
-          <%= link_to new_favorite_path do %>
-            <i class="fas fa-heart heart" id="heart"></i>
-          <% end %>
-        <% end %>
       </div>
     <% end %>
   <% end %>
