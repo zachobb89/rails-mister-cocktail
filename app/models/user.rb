@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :cocktails, through: :favorites
   has_many :favorites
+  has_many :reviews
 
   validates :photo, presence: true
   validates :first_name, presence: true

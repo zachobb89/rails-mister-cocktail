@@ -40,6 +40,15 @@
 <div>
   <h3>Reviews</h3>
   <%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-blue" %>
+  <% @cocktail.reviews.each do |review| %>
+    <br>
+    <br>
+    <%= review.stars %> |
+    <%= review.description %> |
+    <%= review.user_id %>
+    <br>
+  <% end %>
+  <br>
 </div>
 
 <script>
