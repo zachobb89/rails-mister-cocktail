@@ -1,6 +1,19 @@
-class FavoriteController < ActionController::Base
+class FavoritesController < ActionController::Base
   def create
-    current_user.favorites.create(:cocktail_id => params[:cocktail_id])
-    render :layout => false
+    @favorite = Favorite.create(favorite_params)
+    redirect_back fallback_location: root_path
+  end
+
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    @favorite.delete
+
+    redirect_back fallback_location: root_path
+  end
+
+  private
+
+  def favorite_params
+    params.require(:favorite).permit(:user_id, :cocktail_id)
   end
 end

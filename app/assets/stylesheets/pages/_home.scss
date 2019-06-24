@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.card1 {
+  position: relative;
+}
+
+.heart {
+  color: white !important;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  &:hover {
+    opacity: 0.85;
+    color: red;
+  }
+}
+
+.heart-red {
+  color: red !important;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  &:hover {
+    opacity: 0.85;
+    color: white;
+  }
+}

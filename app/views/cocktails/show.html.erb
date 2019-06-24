@@ -2,13 +2,15 @@
   <div class="container show-split">
     <div>
       <h1><%= @cocktail.name %></h1>
+      <br>
       <p><%= @cocktail.description %></p>
     </div>
-    <div>
-      <% if @doses.count > 0 %>
-        <h1 id="ingr">Ingredients</h1>
+    <div class="ing-side">
+      <% if @cocktail.doses.count > 0 %>
+        <h1 class="" id="ingr">Ingredients</h1>
+        <br>
       <% end %>
-      <% @doses.each do |d| %>
+      <% @cocktail.doses.each do |d| %>
         <p class="ing-text" id="name"><%= d.ingredient.name %> - <%= d.description + "  "  %> <% if current_user && @cocktail.user_id == current_user.id  %>
           <%= link_to dose_path(d), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fas fa-minus-circle"></i>
@@ -19,13 +21,35 @@
       <br>
         <% if current_user && @cocktail.user_id == current_user.id %>
           <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-blue add-show" %>
-          <br>
-          <br>
           <%= link_to "Delete Cocktail", cocktail_path(@cocktail[:id]), method: :delete, data: { confirm: "Delete... are you sure?" }, class: "btn btn-green delete-show" %>
+
+          <% if current_user.favorites.where(cocktail_id: @cocktail.id).exists? %>
+            <%= link_to favorite_path(current_user.favorites.where(cocktail_id: @cocktail.id).first.id), method: :delete do %>
+              <i class="fas fa-heart heart-red" id="heart"></i>
+            <% end %>
           <% else %>
+            <%= link_to favorites_path( favorite: { user_id: current_user.id, cocktail_id: @cocktail.id } ), method: :post do %>
+              <i class="fas fa-heart heart" id="heart"></i>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
   </div>
 </div>
 
+<div>
+  <h3>Reviews</h3>
+  <%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-blue" %>
+</div>
 
+<script>
+  let text = document.getElementById("ingr");
+
+  text.addEventListener('click', (event) => {
+    if (event.currentTarget.classList.contains('clicked')) {
+      event.currentTarget.classList.remove('clicked');
+    } else {
+      event.currentTarget.classList.add('clicked');
+    }
+  });
+</script>

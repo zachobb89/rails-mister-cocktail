@@ -46,6 +46,12 @@
   justify-content: space-between;
 }
 
+@media only screen and (max-width: 576px) {
+  .show-split {
+    display: block;
+  }
+}
+
 .show-split h1 {
   color: white;
 }
@@ -53,6 +59,7 @@
 .show-banner {
   position: relative;
 }
+
 
 
 .delete-show {
@@ -78,5 +85,14 @@
  }
 
  .clicked {
-  color: red;
+  color: red !important;
+  font-color: red;
+ }
+
+ .ing-side {
+  overflow: scroll;
+ }
+
+ .e-click {
+  background-color: red !important;
  }
