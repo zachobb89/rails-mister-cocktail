@@ -3,6 +3,7 @@ class Cocktail < ApplicationRecord
   has_many :ingredients, through: :doses
   has_many :favorites
   has_many :users
+  has_many :reviews
 
   belongs_to :user
 

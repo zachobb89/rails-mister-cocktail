@@ -13,6 +13,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @reviews = Review.where(cocktail_id: @cocktail.id)
   end
 
   def new
