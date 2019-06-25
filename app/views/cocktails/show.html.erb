@@ -47,12 +47,24 @@
     <%= review.description %> |
     <%= review.user.username %> |
     <%= review.user.first_name %>
-    <div <%= review.user.photo %> >
+    <% if current_user %>
+      <% if review.likes.where(review_id: review.id).where(user_id: current_user).exists? %>
+        <%= link_to cocktail_review_like_path( cocktail_id: @cocktail.id, review_id: review.id, user_id: current_user.id ), method: :destroy do %>
+          <i style="color: #03A0D6" class="fas fa-thumbs-up"></i>
+        <% end %>
+      <% else %>
+        <%= link_to cocktail_review_likes_path( cocktail_id: @cocktail.id, user_id: current_user.id, review_id: review.id ), method: :post do %>
+          <i style="color: #e5e5e5" class="fas fa-thumbs-up"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= review.likes.count %>
   <% end %>
 </div>
 
 <script>
-  let text = document.getElementById("ingr");
+  let text = document.getElementById("ing");
+  let heart = document.getElementById("heart");
 
   text.addEventListener('click', (event) => {
     if (event.currentTarget.classList.contains('clicked')) {
@@ -61,4 +73,16 @@
       event.currentTarget.classList.add('clicked');
     }
   });
+
+  // heart.addEventListener('click', (event) => {
+
+  //   if (event.currentTarget.classList.contains('clicked')) {
+  //     event.currentTarget.classList.remove('clicked');
+  //   } else {
+  //     event.currentTarget.classList.add('clicked');
+  //   }
+  // });
+
+
+
 </script>
