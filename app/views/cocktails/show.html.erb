@@ -43,12 +43,12 @@
   <% @cocktail.reviews.each do |review| %>
     <br>
     <br>
-    <%= review.stars %> |
+    <%= review.stars %> out of 5 stars |
     <%= review.description %> |
-    <%= review.user_id %>
-    <br>
+    <%= review.user.username %> |
+    <%= review.user.first_name %>
+    <div <%= review.user.photo %> >
   <% end %>
-  <br>
 </div>
 
 <script>
