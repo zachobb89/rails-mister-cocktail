@@ -86,7 +86,7 @@
 
  .clicked {
   color: red !important;
-  font-color: red;
+  font-color: red !important;
  }
 
  .ing-side {
@@ -95,4 +95,9 @@
 
  .e-click {
   background-color: red !important;
+ }
+
+ .review-header {
+  display: flex;
+  justify-content: space-between;
  }

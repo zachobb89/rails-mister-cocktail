@@ -1,9 +1,9 @@
 class Cocktail < ApplicationRecord
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   belongs_to :user
 
