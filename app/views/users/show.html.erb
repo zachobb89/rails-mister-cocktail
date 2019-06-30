@@ -12,7 +12,7 @@
             </div>
 
         <div class="card-email">
-          <%= link_to @user.email %>
+          <%= mail_to @user.email, 'Send Email', { target: '_blank' } %>
         </div>
     </div>
   </div>

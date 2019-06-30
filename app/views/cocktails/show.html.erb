@@ -39,7 +39,7 @@
 <br><br>
 <div>
   <div class="review-header">
-    <h3>Reviews</h3>
+    <h3>Reviews (<%= @cocktail.reviews.count %>) </h3>
     <%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-blue" %>
   </div>
 

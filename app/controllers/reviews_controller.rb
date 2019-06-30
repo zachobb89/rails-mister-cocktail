@@ -10,9 +10,9 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     # @review.cocktail_id = params[:cocktail_id]
     if @review.save
-      redirect_to root_path
-    else
-      raise
+      redirect_to cocktail_path(params[:cocktail_id])
+    elsif @review.stars > 5
+      redirect_back fallback_location: root_path
     end
   end
 
