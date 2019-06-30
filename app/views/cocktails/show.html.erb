@@ -46,10 +46,14 @@
   <% @cocktail.reviews.each do |review| %>
     <br>
     <br>
-    <%= review.stars %> out of 5 stars |
+    <% review.stars.times do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+    <% review.blank_stars.times do %>
+      <i style="color:grey;" class="fas fa-star"></i>
+    <% end %>
     <%= review.description %> |
     <%= review.user.username %> |
-    <%= review.user.first_name %> |
     <% if current_user %>
       <% if review.likes.where(review_id: review.id).where(user_id: current_user).exists? %>
         <%= link_to cocktail_review_like_path( cocktail_id: @cocktail.id, review_id: review.id, id: review.likes.where(review_id: review.id).where(user_id: current_user).first.id ) , method: :delete do %>

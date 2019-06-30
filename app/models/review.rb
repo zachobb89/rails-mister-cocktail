@@ -6,4 +6,8 @@ class Review < ApplicationRecord
 
   validates :stars, presence: true, inclusion: 0..5
   validates :description, presence: true
+
+   def blank_stars
+     5 - stars.to_i
+   end
 end
