@@ -4,7 +4,7 @@
     <% if !current_user %>
       <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-blue"%>
     <% else %>
-      <p>Welcome, <%= current_user.first_name %>!</p>
+      <p>Welcome <%= current_user.first_name %>!</p>
     <% end %>
 </div>
 
@@ -22,7 +22,6 @@
       </div>
     <% end %>
   <% end %>
-  <br>
 </div>
 
 <div
@@ -33,4 +32,3 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 <br>
-
